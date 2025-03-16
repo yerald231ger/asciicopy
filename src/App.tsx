@@ -8,7 +8,8 @@ function App() {
 
   const categories = [
     { id: 'blocks', name: 'Block Elements', icon: '▀' },
-    { id: 'geometric', name: 'Geometric Shapes', icon: '◆' }
+    { id: 'geometric', name: 'Geometric Shapes', icon: '◆' },
+    { id: 'latin', name: 'Basic Latin', icon: 'A' }
   ]
 
   const renderContent = () => {
@@ -35,6 +36,19 @@ function App() {
             <h2 className="text-2xl font-semibold mb-6">Geometric Shapes</h2>
             <div className="space-y-8">
               <UnicodeElement title="Geometric Shapes" blocks={blockElements.geometric} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    if (selectedCategory === 'latin') {
+      return (
+        <div className="p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-semibold mb-6">Basic Latin</h2>
+            <div className="space-y-8">
+              <UnicodeElement title="ASCII Characters" blocks={blockElements.latin} />
             </div>
           </div>
         </div>
