@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { UnicodeElement } from './components/UnicodeElement'
 import { blockElements } from './data/blockElements'
@@ -6,6 +6,14 @@ import { CategoryButton } from './components/CategoryButton' // Import the new c
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('blocks')
+
+  useEffect(() => {
+    document.title = "AsciiCopy - Copy and use ASCII and Unicode characters easily";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "AsciiCopy - Copy and use ASCII and Unicode characters easily.");
+    }
+  }, []);
 
   const categories = [
     { id: 'blocks', name: 'Block Elements', icon: '▀' },
