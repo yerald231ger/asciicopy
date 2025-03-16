@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { UnicodeElement } from './components/UnicodeElement'
 import { blockElements } from './data/blockElements'
+import { CategoryButton } from './components/CategoryButton' // Import the new component
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('blocks')
@@ -74,17 +75,12 @@ function App() {
             </div>
             <nav className="mt-4 p-3 space-y-2 flex-1">
               {categories.map((category) => (
-                <button
+                <CategoryButton
                   key={category.id}
+                  category={category}
+                  isSelected={selectedCategory === category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`w-full flex items-center px-4 py-2.5 text-left transition-all duration-200 rounded-lg transform hover:translate-x-1 hover:-skew-x-1 ${
-                    selectedCategory === category.id 
-                      ? 'text-blue-600 bg-white shadow-sm font-medium translate-x-1 -skew-x-1' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-sm'
-                  }`}
-                >
-                  <span className="transform hover:skew-x-1">{category.name}</span>
-                </button>
+                />
               ))}
             </nav>
             {/* Company selector at bottom */}
