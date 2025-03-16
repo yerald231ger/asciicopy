@@ -9,9 +9,7 @@ function App() {
   const categories = [
     { id: 'blocks', name: 'Block Elements', icon: '▀' },
     { id: 'geometric', name: 'Geometric Shapes', icon: '◆' },
-    { id: 'latin', name: 'Basic Latin', icon: 'A' },
-    { id: 'latin1', name: 'Latin-1 Supplement', icon: 'Á' },
-    { id: 'latinExtA', name: 'Latin Extended-A', icon: 'Ā' }
+    { id: 'latin', name: 'Latin', icon: 'Ā' }
   ]
 
   const renderContent = () => {
@@ -48,35 +46,9 @@ function App() {
       return (
         <div className="p-8">
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-6">Basic Latin</h2>
+            <h2 className="text-2xl font-semibold mb-6">Latin Characters</h2>
             <div className="space-y-8">
-              <UnicodeElement title="ASCII Characters" blocks={blockElements.latin} />
-            </div>
-          </div>
-        </div>
-      )
-    }
-
-    if (selectedCategory === 'latin1') {
-      return (
-        <div className="p-8">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-6">Latin-1 Supplement</h2>
-            <div className="space-y-8">
-              <UnicodeElement title="Latin-1 Characters" blocks={blockElements.latin1} />
-            </div>
-          </div>
-        </div>
-      )
-    }
-
-    if (selectedCategory === 'latinExtA') {
-      return (
-        <div className="p-8">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-6">Latin Extended-A</h2>
-            <div className="space-y-8">
-              <UnicodeElement title="Extended Latin Characters" blocks={blockElements.latinExtA} />
+              <UnicodeElement title="Latin Characters" blocks={blockElements.latin} />
             </div>
           </div>
         </div>
