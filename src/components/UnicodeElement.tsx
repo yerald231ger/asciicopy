@@ -26,22 +26,22 @@ export function UnicodeElement({ title, blocks }: UnicodeElementProps) {
 
   return (
     <div>
-      <h3 className="text-lg font-medium text-gray-900 mb-4">{title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <h3 className="text-lg font-medium text-gray-900 mb-3">{title}</h3>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {blocks.map((block) => (
           <div 
             key={block.code} 
             onClick={() => handleCopy(block.glyph, block.code)}
-            className="relative p-4 bg-gray-50 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group"
+            className="relative p-2 bg-gray-50 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group"
           >
-            <span className="text-4xl block mb-2">{block.glyph}</span>
-            <p className="text-sm font-medium text-gray-900">{block.description}</p>
-            <p className="text-xs text-gray-500">{block.code}</p>
+            <span className="text-2xl block mb-1">{block.glyph}</span>
+            <p className="text-xs font-medium text-gray-900 truncate">{block.description}</p>
+            <p className="text-[10px] text-gray-500">{block.code}</p>
             
             {/* Copied indicator */}
             <div 
               className={`
-                absolute top-2 right-2 px-2 py-1 bg-blue-600 text-white text-xs rounded-md
+                absolute top-1 right-1 px-1.5 py-0.5 bg-blue-600 text-white text-[10px] rounded
                 transition-all duration-200
                 ${copiedBlock === block.code 
                   ? 'opacity-100 translate-y-0' 
@@ -50,16 +50,6 @@ export function UnicodeElement({ title, blocks }: UnicodeElementProps) {
               `}
             >
               Copied!
-            </div>
-
-            {/* Hover indicator */}
-            <div 
-              className={`
-                absolute inset-0 flex items-center justify-center bg-black/5 rounded-lg
-                opacity-0 group-hover:opacity-100 transition-opacity duration-200
-              `}
-            >
-              <span className="text-sm font-medium text-gray-900">Click to copy</span>
             </div>
           </div>
         ))}
