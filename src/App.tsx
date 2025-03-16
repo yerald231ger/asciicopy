@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState('dashboard')
+  const [selectedCategory, setSelectedCategory] = useState('overview')
 
   const categories = [
     { id: 'overview', name: 'Overview', icon: '📊' },
@@ -18,7 +18,9 @@ function App() {
     return (
       <div className="p-8">
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <h2 className="text-2xl font-semibold mb-6">Payroll</h2>
+          <h2 className="text-2xl font-semibold mb-6">{
+            categories.find(cat => cat.id === selectedCategory)?.name || 'Overview'
+          }</h2>
           {/* Sample content similar to the image */}
           <table className="w-full">
             <thead>
@@ -63,13 +65,13 @@ function App() {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`w-full flex items-center px-4 py-2.5 text-left transition-all duration-200 rounded-lg ${
+                className={`w-full flex items-center px-4 py-2.5 text-left transition-all duration-200 rounded-lg transform hover:translate-x-1 hover:-skew-x-1 ${
                   selectedCategory === category.id 
-                    ? 'text-blue-600 bg-white shadow-sm font-medium' 
+                    ? 'text-blue-600 bg-white shadow-sm font-medium translate-x-1 -skew-x-1' 
                     : 'text-gray-600 hover:text-gray-900 hover:bg-white hover:shadow-sm'
                 }`}
               >
-                <span>{category.name}</span>
+                <span className="transform hover:skew-x-1">{category.name}</span>
               </button>
             ))}
           </nav>
