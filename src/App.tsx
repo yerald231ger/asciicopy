@@ -1,11 +1,44 @@
 import { useState } from 'react'
 import './App.css'
+import { UnicodeElement } from './components/UnicodeElement'
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('overview')
 
+  const blockElements = {
+    blocks: [
+      { code: 'U+2580', glyph: '▀', description: 'Upper half block' },
+      { code: 'U+2584', glyph: '▄', description: 'Lower half block' },
+      { code: 'U+2588', glyph: '█', description: 'Full block' },
+      { code: 'U+258C', glyph: '▌', description: 'Left half block' },
+      { code: 'U+2590', glyph: '▐', description: 'Right half block' },
+    ],
+    gradients: [
+      { code: 'U+2581', glyph: '▁', description: 'Lower one eighth block' },
+      { code: 'U+2582', glyph: '▂', description: 'Lower one quarter block' },
+      { code: 'U+2583', glyph: '▃', description: 'Lower three eighths block' },
+      { code: 'U+2585', glyph: '▅', description: 'Lower five eighths block' },
+      { code: 'U+2586', glyph: '▆', description: 'Lower three quarters block' },
+      { code: 'U+2587', glyph: '▇', description: 'Lower seven eighths block' },
+    ],
+    shades: [
+      { code: 'U+2591', glyph: '░', description: 'Light shade' },
+      { code: 'U+2592', glyph: '▒', description: 'Medium shade' },
+      { code: 'U+2593', glyph: '▓', description: 'Dark shade' },
+    ],
+    quadrants: [
+      { code: 'U+2596', glyph: '▖', description: 'Quadrant lower left' },
+      { code: 'U+2597', glyph: '▗', description: 'Quadrant lower right' },
+      { code: 'U+2598', glyph: '▘', description: 'Quadrant upper left' },
+      { code: 'U+259D', glyph: '▝', description: 'Quadrant upper right' },
+      { code: 'U+259A', glyph: '▚', description: 'Quadrant upper left and lower right' },
+      { code: 'U+259E', glyph: '▞', description: 'Quadrant upper right and lower left' },
+    ]
+  }
+
   const categories = [
     { id: 'overview', name: 'Overview', icon: '📊' },
+    { id: 'blocks', name: 'Block Elements', icon: '▀' },
     { id: 'contacts', name: 'Contacts', icon: '👥' },
     { id: 'bills', name: 'Bills', icon: '💰' },
     { id: 'expenses', name: 'Expenses', icon: '📋' },
@@ -15,6 +48,22 @@ function App() {
   ]
 
   const renderContent = () => {
+    if (selectedCategory === 'blocks') {
+      return (
+        <div className="p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-semibold mb-6">Block Elements</h2>
+            <div className="space-y-8">
+              <UnicodeElement title="Basic Blocks" blocks={blockElements.blocks} />
+              <UnicodeElement title="Gradient Blocks" blocks={blockElements.gradients} />
+              <UnicodeElement title="Shades" blocks={blockElements.shades} />
+              <UnicodeElement title="Quadrant Blocks" blocks={blockElements.quadrants} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className="p-8">
         <div className="bg-white rounded-lg shadow-sm p-6">
@@ -39,7 +88,6 @@ function App() {
                 <td>$300.00</td>
                 <td>$314.00</td>
               </tr>
-              {/* Add more rows as needed */}
             </tbody>
           </table>
         </div>
