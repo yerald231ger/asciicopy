@@ -57,7 +57,9 @@ function App() {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-2xl font-semibold mb-6">Latin Characters</h2>
             <div className="space-y-8">
-              <UnicodeElement title="Latin Characters" blocks={blockElements.latin} />
+              <UnicodeElement title="Basic Latin" blocks={blockElements.latin.basic} />
+              <UnicodeElement title="Latin-1 Supplement" blocks={blockElements.latin.latin1} />
+              <UnicodeElement title="Latin Extended-A" blocks={blockElements.latin.latinExtA} />
             </div>
           </div>
         </div>

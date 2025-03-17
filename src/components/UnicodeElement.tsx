@@ -24,6 +24,10 @@ export function UnicodeElement({ title, blocks }: UnicodeElementProps) {
     }
   }
 
+  if (!Array.isArray(blocks)) {
+    return <div>Error: blocks is not an array</div>
+  }
+
   return (
     <div>
       <h3 className="text-lg font-medium text-gray-900 mb-3">{title}</h3>
