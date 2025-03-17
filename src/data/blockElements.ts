@@ -10,7 +10,7 @@ interface UnicodeBlock {
 interface BlockElements {
   blocks: UnicodeBlock[]
   gradients: UnicodeBlock[]
-  shades: UnicodeBlock[]
+  shades: UnicodeBlock[]x
   quadrants: UnicodeBlock[]
   geometric: UnicodeBlock[]
   latin: {
