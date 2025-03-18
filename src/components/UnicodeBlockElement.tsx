@@ -26,7 +26,7 @@ export function UnicodeBlockElement({ block }: UnicodeBlockElementProps) {
   return (
     <div
       onClick={() => handleCopy(block.glyph, block.code)}
-      className="relative p-1.5 bg-gray-50 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group"
+      className="relative p-1.5 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group"
     >
       <span className="text-xl block mb-0.5">{block.glyph}</span>
       <p className="text-[9px] font-medium text-gray-900 truncate">{block.description}</p>
