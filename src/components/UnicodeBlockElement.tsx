@@ -26,11 +26,10 @@ export function UnicodeBlockElement({ block }: UnicodeBlockElementProps) {
   return (
     <div
       onClick={() => handleCopy(block.glyph, block.code)}
-      className="relative p-1.5 bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group"
+      className="relative aspect-square w-full h-full flex flex-col items-center justify-center bg-gray-50 rounded-lg border border-gray-100 hover:bg-white hover:shadow-sm transition-all duration-200 cursor-pointer group"
     >
-      <span className="text-xl block mb-0.5">{block.glyph}</span>
-      <p className="text-[9px] font-medium text-gray-900 truncate">{block.description}</p>
-      <p className="text-[8px] text-gray-500">{block.code}</p>
+      <span className="text-5xl flex-1 flex items-center justify-center">{block.glyph}</span>
+      <p className="text-[12px] text-gray-600 mt-1">{block.code}</p>
 
       {/* Copied indicator */}
       <div
