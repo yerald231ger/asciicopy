@@ -20,7 +20,10 @@ function App() {
     { id: 'blocks', name: 'Block Elements', icon: '▀' },
     { id: 'geometric', name: 'Geometric Shapes', icon: '◆' },
     { id: 'latin', name: 'Latin', icon: 'Ā' },
-    { id: 'boxDrawing', name: 'Box Drawing', icon: '┏' }
+    { id: 'boxDrawing', name: 'Box Drawing', icon: '┏' },
+    { id: 'mathematical', name: 'Mathematical', icon: '∑' },
+    { id: 'enclosed', name: 'Enclosed Alphanumeric', icon: 'Ⓐ' },
+    { id: 'domino', name: 'Domino Tiles', icon: '🀱' }
   ]
 
   const renderContent = () => {
@@ -75,6 +78,44 @@ function App() {
             <h2 className="text-2xl font-semibold mb-6">Box Drawing</h2>
             <div className="space-y-8">
               <UnicodeElement title="Box Drawing Characters" blocks={blockElements.boxDrawing} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    if (selectedCategory === 'mathematical') {
+      return (
+        <div className="p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-semibold mb-6">Mathematical Symbols</h2>
+            <div className="space-y-8">
+              <UnicodeElement title="Mathematical Operators" blocks={blockElements.mathematical} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    if (selectedCategory === 'enclosed') {
+      return (
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold">Enclosed Alphanumeric</h2>
+          <div className="grid grid-cols-1 gap-4">
+            <UnicodeElement title="Enclosed Characters" blocks={blockElements.enclosed} />
+          </div>
+        </div>
+      )
+    }
+
+    if (selectedCategory === 'domino') {
+      return (
+        <div className="p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-semibold mb-6">Domino Tiles</h2>
+            <div className="space-y-8">
+              <UnicodeElement title="Horizontal Domino Tiles" blocks={blockElements.domino.slice(0, 49)} />
+              <UnicodeElement title="Vertical Domino Tiles" blocks={blockElements.domino.slice(49)} />
             </div>
           </div>
         </div>
