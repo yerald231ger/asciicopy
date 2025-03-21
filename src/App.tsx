@@ -99,10 +99,12 @@ function App() {
 
     if (selectedCategory === 'enclosed') {
       return (
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Enclosed Alphanumeric</h2>
-          <div className="grid grid-cols-1 gap-4">
-            <UnicodeElement title="Enclosed Characters" blocks={blockElements.enclosed} />
+        <div className="p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-semibold mb-6">Enclosed Alphanumeric</h2>
+            <div className="grid grid-cols-1 gap-4">
+              <UnicodeElement title="Enclosed Characters" blocks={blockElements.enclosed} />
+            </div>
           </div>
         </div>
       )
