@@ -23,7 +23,8 @@ function App() {
     { id: 'boxDrawing', name: 'Box Drawing', icon: '┏' },
     { id: 'mathematical', name: 'Mathematical', icon: '∑' },
     { id: 'enclosed', name: 'Enclosed Alphanumeric', icon: 'Ⓐ' },
-    { id: 'domino', name: 'Domino Tiles', icon: '🀱' }
+    { id: 'domino', name: 'Domino Tiles', icon: '🀱' },
+    { id: 'dingbats', name: 'Dingbats', icon: '✿' }
   ]
 
   const renderContent = () => {
@@ -118,6 +119,19 @@ function App() {
             <div className="space-y-8">
               <UnicodeElement title="Horizontal Domino Tiles" blocks={blockElements.domino.slice(0, 49)} />
               <UnicodeElement title="Vertical Domino Tiles" blocks={blockElements.domino.slice(49)} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    if (selectedCategory === 'dingbats') {
+      return (
+        <div className="p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h2 className="text-2xl font-semibold mb-6">Dingbats</h2>
+            <div className="space-y-8">
+              <UnicodeElement title="Dingbat Characters" blocks={blockElements.dingbats} />
             </div>
           </div>
         </div>
